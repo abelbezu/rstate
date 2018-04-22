@@ -1,0 +1,14 @@
+<div class="rs-home-image">
+  <div class="container">
+    <%= render(partial: "partials/wallpaper_overlay")%>
+  </div>
+</div>
+<div class="container mt-4">
+  <h5> Latest Listings </h5>
+  <hr>
+  <div class="row mt-4">
+    <% @listings.each do |listing| %>
+    <%= render(partial: "listing_card", locals: {listing: listing}) %>
+    <% end %>
+  </div>
+</div>

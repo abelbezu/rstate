@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  <% if @listing %> 
+    <div class="row">
+      <div class="col-md-8">
+        <% if @listing.images %>
+          <%= render(partial: "house_picture_carousel", locals: {images: @listing.images})%>
+        <% end %>
+
+        <h4><%= @listing.title%></h4>
+        <hr>
+      </div>
+      <div class="col-md-4">
+       <%= render("show_side_pane")%>
+      </div>
+    </div> 
+  <% else %>
+    <%= render("partials/not_found", locals: {resource: "listing"})%>
+  <% end %>
+</div>

@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <h5>Add a New Listing</h5>
+      <hr>
+      <%= form_with(model: @listing, class: "form-group") do |form| %>
+        <div class="form-group mt-3">
+          <label for="listingName">Title</label>
+          <%= form.text_field(:title, id: "listingName", class: "form-control", placeholder: "A brief explanation about the listing...") %>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="form-check form-check-inline">
+              <%= form.radio_button(:listing_for, "sale", class: "form-check-input") %>
+              <label class="form-check-label" for="inlineRadio1">For Sale</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= form.radio_button(:listing_for, "rent", class: "form-check-input") %>
+              <label class="form-check-label" for="inlineRadio2">For Rent</label>
+            </div>
+          </div>
+
+        <h5> Location</h5>
+        <hr>
+
+        <%= form.fields_for(:location) do |location_form|%>
+          <div class="form-row mt-3">
+            <div class="form-group col-md-6">
+              <label for="listingCity">City</label>
+               <%= location_form.text_field(:city, id: "listingCity", class: "form-control") %>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="listingNeighborhood">Neighborhood</label>
+              <%= location_form.text_field(:neighborhood, id: "listingNeighborhood", class: "form-control") %>
+            </div>
+          </div>
+        <% end %>
+
+        <h5> Propery Details</h5>
+        <hr>
+        <%= form.fields_for(:house_detail) do |house_detail_form| %>
+          <div class="form-row">
+            <div class="form-group col-md-5 mt-2">
+              <label for="itemPrice">Bedrooms</label>
+              <div id="itemPrice" class="input-group">
+                <%= house_detail_form.select(:bedrooms, options_for_select([*1..20]), class: "custom-select") %>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-5 mt-2">
+              <label for="itemPrice">Bathrooms</label>
+              <div id="itemPrice" class="input-group">
+                <%= house_detail_form.select(:bathrooms, options_for_select([*1..20]), class: "custom-select") %>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-5 mt-2">
+              <label for="itemPrice">Floors</label>
+              <div id="itemPrice" class="input-group">
+               <%= house_detail_form.select(:floors, options_for_select([*1..20]), class: "custom-select") %>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-5 mt-2">
+              <label for="itemPrice">Area</label>
+              <div id="itemPrice" class="input-group">
+                <%= house_detail_form.text_field(:area, class: "form-control") %>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary " type="button" disabled>Square Meters</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="links mt-2"> 
+          <%= link_to_add_association("Add Image", form, :images, partial: "images/image_fields",  class: "btn btn-outline-primary") %>
+        </div>
+        <%= form.fields_for(:price) do |price_form|%>
+          <div class="form-row">
+            <div class="form-group col-md-6 mt-3">
+              <label for="itemPrice">Price</label>
+              <div id="itemPrice" class="input-group">
+                <%= price_form.text_field(:amount, class: "form-control") %>
+
+                <%= price_form.select(:currency, options_for_select([["Ethiopian Birr", 1], ["US Dollars", 2]]), class: "custom-select") %>
+              </div>
+              <div class="form-check mb-2">
+                  <%= price_form.check_box(:negotiable, class: "form-check-input", id: "listingPriceNegotiable") %>
+                  <label class="form-check-label" for="listingPriceNegotiable">
+                    Negotiable
+                  </label>
+              </div>
+            </div>
+           </div>
+        <% end %>
+
+        <br>
+
+        <h5>Further details</h5>
+        <hr>
+        <div class="form-group mt-3">
+          <label for="listingDescription">Description</label>
+          <%= form.text_area(:description, id: "listingDescription", class: "form-control", placeholder: "Detailed explanation...",  rows: "4") %>
+        </div>
+        <h5>Listing type</h5>
+        <hr>
+
+        <div class="form-group mt-2"> 
+          <%= form.submit("Submit", class: "btn btn-secondary")%>
+        </div>
+      <% end %>
+
+    </div>
+     <div class="col-md-3">
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,117 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #484848;
+
+  .rs-home-image {
+    background-image: url(bg_blurredcopy.jpeg);
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    resize: both;
+    // overflow: scroll;
+
+    .rs-overlay {
+      margin-top: 5%;
+      height: 250px;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(0,0,0,.75);
+      box-shadow: 0 0 0.8823em 0 rgba(0,0,0,.5);
+
+      .rs-overlay-btn {
+        background-color: #626262cf;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 200;
+      }
+
+      .active {
+        background-color: #e74c3c;
+      }
+
+      .rs-overlay-option {
+        margin-right: 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        .rs-overlay-select {
+          background-color: #fdfdfdcf;
+          color: #000; 
+          font-size: 14px;
+          font-weight: 200;
+      }
+
+      }
+    }
+
+    // .rs-filters {
+    //   margin-top: 20%;
+    //   .rs-fancy-btn {
+    //     height: 50px;
+    //     background-color: #00b894;
+    //     color: white;
+    //     border-color: transparent;    
+    //   }
+    //   .rs-first {
+    //     border-top-left-radius: 5px;
+    //     border-bottom-left-radius: 5px;
+    //   }
+    //   .rs-last {
+    //     border-top-right-radius: 5px;
+    //     border-bottom-right-radius: 5px;
+    //   }
+    // }
+  }
+
+
+  .rs-listing-title {
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+  .card-body {
+    padding: 4px 4px 16px 10px;
+
+    .rs-price {
+
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .rs-amenities-container {   
+
+      list-style: none;
+      padding-left: 0px;
+      margin-bottom: 4px;
+
+      li {
+        font-size: 12px;
+        font-weight: 200;
+        display: inline!important;
+        vertical-align: baseline;
+        margin-right: 10px;
+        height: auto;
+        width: auto;
+      }
+
+    }
+
+    .rs-location {
+      font-size: 15px;
+      font-weight: 300;
+      color: #909090;
+    }
+  }
+
+  .rs-btn-default {
+    width: 100px;
+    color: #fff;
+    background-color: #1dd1a1;
+
+  }
+
+}

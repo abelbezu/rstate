@@ -1,0 +1,38 @@
+// Place all the styles related to the homepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sch-navbar-bg {
+  background-color: #232329;
+
+
+  .rs-navbar-brand {
+    color: #ffffff;
+    font-family: 'IM Fell DW Pica', serif;
+    font-size: 22px;
+
+    .rs-brand-light {
+      font-weight: 300;
+    }
+
+     .rs-brand-bold {
+       color: #1dd1a1;
+       font-weight: 800;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+
+  }
+
+  .nav-link {
+    color: #cdcfd3;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,arial,sans-serif;
+    font-weight: 300;
+    &:active {
+      color: #cdcfd3;
+    }
+  }
+}
