@@ -1,0 +1,10 @@
+<div class="card rs-similar-listings-card">
+  <div class="card-body">
+    <% if listings %>
+      <% listings[0..3].each do |listing| %>
+        <%= render(partial: "listing_card", locals: {listing: listing}) %>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+</div>

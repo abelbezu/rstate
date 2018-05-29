@@ -4,9 +4,11 @@
 body {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #484848;
+  background-color: #eaeaea;
+  height: 100%;
 
   .rs-home-image {
-    background-image: url(bg_blurredcopy.jpeg);
+    background-image: url(house_cool.jpg);
     width: 100%;
     height: 400px;
     background-size: cover;
@@ -48,23 +50,6 @@ body {
       }
     }
 
-    // .rs-filters {
-    //   margin-top: 20%;
-    //   .rs-fancy-btn {
-    //     height: 50px;
-    //     background-color: #00b894;
-    //     color: white;
-    //     border-color: transparent;    
-    //   }
-    //   .rs-first {
-    //     border-top-left-radius: 5px;
-    //     border-bottom-left-radius: 5px;
-    //   }
-    //   .rs-last {
-    //     border-top-right-radius: 5px;
-    //     border-bottom-right-radius: 5px;
-    //   }
-    // }
   }
 
 
@@ -73,7 +58,7 @@ body {
     font-weight: bolder;
   }
 
-  .card-body {
+  .rs-listing-card-body {
     padding: 4px 4px 16px 10px;
 
     .rs-price {
@@ -113,5 +98,62 @@ body {
     background-color: #1dd1a1;
 
   }
-
 }
+
+.rs-listing-container-main {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+ .rs-carousel-item {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    width: 100%;
+    height: 500px;;
+    background-color: black !important;
+  }
+
+  .card-body {
+    padding: 1.25rem 0rem;
+  }
+
+  .rs-listing-info {
+    font-size: 13px;
+    font-weight: 200;
+  }
+
+  .rs-side-card {
+    border: 1px solid #ccc;
+    .rs-listing-price {
+      text-align: center;
+    }
+
+    .rs-agent-info-title {
+      text-align: center;
+      width: 100%;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0rem;
+      background-color: #eee;
+      font-weight: bolder;
+
+    }
+
+    .rs-agent-info {
+      text-align: center;
+      width: 100%;
+      padding: 1rem 0rem;
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+      }
+    }
+  }
+  .rs-similar-listings-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+  }

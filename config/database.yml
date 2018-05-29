@@ -27,6 +27,9 @@ test:
   database: rstate_test
 
 production:
-  host: ethiostate.herokuapp.com
   <<: *default
-  database: rstate_prod
+  host: <%= ENV['RDS_HOSTNAME']%>
+  port: <%= ENV['RDS_PORT']%>
+  username: <%= ENV['RDS_DB_NAME'] %>
+  password: <%= ENV['RDS_USERNAME'] %>
+  database: <%= ENV['RDS_PASSWORD'] %>

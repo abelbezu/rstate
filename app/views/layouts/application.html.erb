@@ -10,11 +10,12 @@
     <%= javascript_include_tag('https://code.jquery.com/jquery-3.3.1.slim.min.js')%>
     <%= javascript_include_tag('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')%>
     <%= javascript_include_tag('application', 'data-turbolinks-track': 'reload')%>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
 
   <body>
-    <%= render "partials/nav"%>
+    <%=render(partial: "partials/nav") %>
     <%= yield %>
   </body>
 </html>

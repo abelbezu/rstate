@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20180421190404) do
 
   create_table "house_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "listing_id"
-    t.decimal "property_type", precision: 10
+    t.integer "property_type"
     t.integer "floors"
     t.integer "bedrooms"
     t.integer "bathrooms"

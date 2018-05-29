@@ -1,6 +1,7 @@
 <% if listing %>
-  <div class="col-md-3 col-sm-12 mt-3">
-    <div class="card">
+
+  <div class="card">
+    <a href=<%=listing_path(listing)%> >
       <% if (listing.images && listing.images.first && listing.images.first.image && listing.images.first.image.url)%>
         <img class="card-img-top" src=<%= listing.images.first.image.url%> alt="">
       <% else %>
@@ -8,50 +9,51 @@
           <img class="card-img-top" src="https://images.vexels.com/media/users/3/130201/isolated/preview/18f6be93175fe25d1d5faf56fcb1a652-european-house-silhouette-1-by-vexels.png">
         </div>
       <% end %>
-      <div class="card-body">
+    </a>
+    <div class="card-body rs-listing-card-body">
+      <div class="">
+        <div class="rs-price">
+          ETB <%= listing.price.amount%>
+        </div>
+        <% if (listing.house_detail) %>
+          <ul class="rs-amenities-container">
+            <% if (listing.house_detail.bedrooms) %>
+              <li>
+                <i class="fas fa-bed"></i>
+                <%= listing.house_detail.bedrooms %>bd
+              </li>
+            <% end %>
+            <% if (listing.house_detail.bedrooms) %>
+              <li>
+                <i class="fas fa-bath"></i>
+                <%= listing.house_detail.bathrooms %>ba
+              </li>
+            <% end %>
+            <% if (listing.house_detail.floors && listing.house_detail.floors > 1) %>
+              <li>
+                <i class="fas fa-building"></i>
+                G+<%= listing.house_detail.floors %>
+              </li>
+            <% end %>
+            <% if (listing.house_detail.area) %>
+              <li>
+                <%= listing.house_detail.area %> sq m
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+        <% if listing.location %>
+          <div class="rs-location">
+            <%= listing.location.neighborhood%>, <%= listing.location.city%>
+          </div>
+        <% end %>
         <div class="">
-          <div class="rs-price">
-            ETB <%= listing.price.amount%>
-          </div>
-          <% if (listing.house_detail) %>
-            <ul class="rs-amenities-container">
-              <% if (listing.house_detail.bedrooms) %>
-                <li>
-                  <i class="fas fa-bed"></i>
-                  <%= listing.house_detail.bedrooms %>bd
-                </li>
-              <% end %>
-              <% if (listing.house_detail.bedrooms) %>
-                <li>
-                  <i class="fas fa-bath"></i>
-                  <%= listing.house_detail.bathrooms %>ba
-                </li>
-              <% end %>
-              <% if (listing.house_detail.floors && listing.house_detail.floors > 1) %>
-                <li>
-                  <i class="fas fa-building"></i>
-                  G+<%= listing.house_detail.floors %>
-                </li>
-              <% end %>
-              <% if (listing.house_detail.area) %>
-                <li>
-                  <%= listing.house_detail.area %> sq m
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-          <% if listing.location %>
-            <div class="rs-location">
-              <%= listing.location.neighborhood%>, <%= listing.location.city%>
-            </div>
-          <% end %>
-          <div class="">
 
-          </div>
         </div>
       </div>
     </div>
   </div>
+
 <% end %>
 
 
