@@ -4,32 +4,34 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-default: &default
-  adapter: mysql2
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  encoding: utf8
-  timeout: 5000
-  port: 3306
-  username: rstate_dev_user
-  password: password
+# default: &default
+#   adapter: mysql2
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   encoding: utf8
+#   timeout: 5000
+#   port: 3306
+#   username: rstate_dev_user
+#   password: password
 
-development:
-  host: 127.0.0.1
-  <<: *default
-  database: rstate_dev
+# development:
+#   host: 127.0.0.1
+#   <<: *default
+#   database: rstate_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  host: 127.0.0.1
-  <<: *default
-  database: rstate_test
+# test:
+#   host: 127.0.0.1
+#   <<: *default
+#   database: rstate_test
 
 production:
-  <<: *default
-  host: <%= ENV['RDS_HOSTNAME']%>
-  port: <%= ENV['RDS_PORT']%>
-  username: <%= ENV['RDS_DB_NAME'] %>
-  password: <%= ENV['RDS_USERNAME'] %>
-  database: <%= ENV['RDS_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['RSTATE_HOSTNAME']%>
+  port: <%= ENV['RSTATE_PORT']%>
+  username: <%= ENV['RSTATE_USERNAME'] %>
+  password: <%= ENV['RSTATE_PASSWORD'] %>
+  database: <%= ENV['RSTATE_DB_NAME'] %>
