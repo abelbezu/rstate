@@ -5,8 +5,18 @@
 .sch-navbar-bg {
   background-color: #232329;
 
+  .nav-link {
+    color: #cdcfd3;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,arial,sans-serif;
+    font-weight: 300;
+    &:active {
+      color: #cdcfd3;
+    }
+  }
+}
 
-  .rs-navbar-brand {
+.rs-navbar-brand {
     color: #ffffff;
     font-family: 'IM Fell DW Pica', serif;
     font-size: 22px;
@@ -20,19 +30,12 @@
        font-weight: 800;
     }
 
+    a:hover {
+      color: #1dd1a1;
+    }
+
     &:hover {
       color: #fff;
     }
 
   }
-
-  .nav-link {
-    color: #cdcfd3;
-    font-size: 14px;
-    font-family: "Helvetica Neue",Helvetica,arial,sans-serif;
-    font-weight: 300;
-    &:active {
-      color: #cdcfd3;
-    }
-  }
-}

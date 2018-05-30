@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rstate</title>
+    <%= csrf_meta_tags %>  
+  
+    <%= stylesheet_link_tag('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload')%>
+    <%= stylesheet_link_tag('admin', media: 'all', 'data-turbolinks-track': 'reload')%>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+
+  <body>
+    <%=render(partial: "admin/nav") %>
+    <%= yield %>
+  </body>
+</html>

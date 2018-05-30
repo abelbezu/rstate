@@ -112,8 +112,7 @@
           <label for="listingDescription">Description</label>
           <%= form.text_area(:description, id: "listingDescription", class: "form-control", placeholder: "Detailed explanation...",  rows: "4") %>
         </div>
-        <h5>Listing type</h5>
-        <hr>
+
 
         <div class="form-group mt-2"> 
           <%= form.submit("Submit", class: "btn btn-secondary")%>
@@ -127,3 +126,5 @@
 
   </div>
 </div>
+
+<%= render(partial: "partials/footer") %>

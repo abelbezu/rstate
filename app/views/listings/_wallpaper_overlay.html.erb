@@ -2,25 +2,33 @@
   <div class="col-md-8">
     <div class="container">
       <div class="row rs-overlay">
-        <div class="col-md-12">
-          <div class="row rs-overlay-option"> Looking To : </div>
-          <div class="row rs-overlay-option">
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="rs-overlay-btn btn active">Purchase</button>
-              <button type="button" class="rs-overlay-btn btn">Rent</button>
-            </div>            
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="rs-overlay-option"> Looking To : </div>
           </div>
-          <div class="row mt-4">
-            <%= render(partial: "home_search_buttons")%>          
-          </div>
-          <div class="row mt-4">
-           <button class="btn rs-btn-default">Search</button>     
+          <div class="col-md-12">
+            <div class="rs-overlay-option">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="rs-overlay-btn btn-block btn active">Purchase</button>
+                <button type="button" class="rs-overlay-btn btn">Rent</button>
+              </div>            
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
+        <div class="mt-4">
+          <%= render(partial: "home_search_buttons")%>          
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-12">
+         <button class="btn rs-btn-default">Search</button>     
+       </div>
+       </div>
 
-  </div>
+     </div>
+   </div>
+ </div>
+ <div class="col-md-4">
+
+ </div>
 </div>

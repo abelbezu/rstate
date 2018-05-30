@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20180421190404) do
 
-  create_table "house_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "house_details", force: :cascade do |t|
     t.bigint "listing_id"
     t.integer "property_type"
     t.integer "floors"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180421190404) do
     t.index ["listing_id"], name: "index_house_details_on_listing_id"
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "images", force: :cascade do |t|
     t.string "image_owner_type"
     t.bigint "image_owner_id"
     t.string "alternate_text"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180421190404) do
     t.index ["image_owner_type", "image_owner_id"], name: "index_images_on_image_owner_type_and_image_owner_id"
   end
 
-  create_table "listings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "listings", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
     t.text "description"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180421190404) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "locations", force: :cascade do |t|
     t.bigint "listing_id"
     t.string "city"
     t.string "neighborhood"
@@ -53,9 +56,9 @@ ActiveRecord::Schema.define(version: 20180421190404) do
     t.index ["listing_id"], name: "index_locations_on_listing_id"
   end
 
-  create_table "prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "prices", force: :cascade do |t|
     t.bigint "listing_id"
-    t.decimal "amount", precision: 10
+    t.decimal "amount"
     t.string "currency"
     t.boolean "negotiable"
     t.datetime "created_at", null: false
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 20180421190404) do
     t.index ["listing_id"], name: "index_prices_on_listing_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"

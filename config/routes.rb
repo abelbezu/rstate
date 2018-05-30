@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
 
   get '/statics/ie', to: 'statics#ie'
+  get '/admin/users', to: 'admin#users'
+  get '/admin/listings', to: 'admin#listings'
+  get '/admin/agents', to: 'admin#agents'
+  get '/admin/analytics', to: 'admin#analytics'
 
   resources :listings
   resources :statics
+  resources :admin
 
 end
