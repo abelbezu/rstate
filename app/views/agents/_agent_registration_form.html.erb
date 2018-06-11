@@ -1,0 +1,43 @@
+<div class = "rs-agent-registration-form-container">
+  <%= form_with(model: @agent, class: "form-group") do |form| %>
+    <div class="form-group row">
+      <label for="firstName" class="col-sm-2 col-form-label"><b>First Name</b></label>
+      <div class="col-sm-10">
+        <%= form.text_field(:first_name, id: "firstName", class: "form-control", placeholder: "First Name") %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="lastName" class="col-sm-2 col-form-label"><b>Last Name</b></label>
+      <div class="col-sm-10">
+         <%= form.text_field(:last_name, id: "lastName", class: "form-control", placeholder: "Last Name") %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="phoneNumber" class="col-sm-2 col-form-label"><b>Phone</b></label>
+      <div class="col-sm-10">
+         <%= form.text_field(:phone_number, id: "phoneNumber", class: "form-control", placeholder: "Phone Name") %>
+      </div>
+    </div>
+    
+    <%= form.fields_for :image_proxies do |image_proxy_form| %>
+      <%= render("images/image_fields", f: image_proxy_form, cocoonable: false) %>
+    <% end %>
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-secondary">Register</button>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  
+  $(function () {
+    var $imageWidget = $(".imageWidget");
+    insertImage($imageWidget, "<%= form_authenticity_token %>");
+
+  });
+
+</script>

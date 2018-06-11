@@ -6,22 +6,22 @@
       <% end %>
     </div>
 
-    <div class="rs-agent-info-title">
-      Agent Info
-    </div>
+    <% if (listing && listing.agent) %>
+      <div class="rs-agent-info-title">
+        Agent Info
+      </div>
 
-    <div class="rs-agent-info">
+      <div class="rs-agent-info">
+        <% if (listing.agent.image_proxy) %>
+          <img src="<%= listing.agent.proxy.image_url %>">
+        <% else %>
+        <% end %>
+        <br>
+          <%= listing.agent.first_name + " " + listing.agent.last_name %>
+        <br>
 
-      <img src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
-      <br>
-      Kidus Yohannes
-      <br>
-
-      +251 913 79 89 54
-    </div>
-    
-   
-    <div>
-    </div>
+        <%= listing.agent.phone_number%>
+      </div>
+    <% end %>
   </div>
 </div>

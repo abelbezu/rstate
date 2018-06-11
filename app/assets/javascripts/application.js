@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery.iframe-transport
+//= require jquery.ui-widget
+//= require jquery.fileupload
 //= require cocoon
-//= require rails-ujs
 //= require turbolinks
+//= require imageUtil
 //= require_tree .

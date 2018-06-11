@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <p> Results For:</p>
+  <p><%= @result_description %></p>
+  <hr>
+  <div class="row mt-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="row">
+        <% if @results %>
+          <% @results.each do |listing| %>
+            <div class="col-md-4 col-sm-12 mt-3">
+              <%= render(partial: "listing_card", locals: {listing: listing}) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<%= render(partial: "partials/footer") %>

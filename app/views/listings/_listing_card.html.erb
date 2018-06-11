@@ -2,8 +2,8 @@
 
   <div class="card">
     <a href=<%=listing_path(listing)%> >
-      <% if (listing.images && listing.images.first && listing.images.first.image && listing.images.first.image.url)%>
-        <img class="card-img-top" src=<%= listing.images.first.image.url%> alt="">
+      <% if (listing.image_proxies && listing.image_proxies.first && listing.image_proxies.first.image_url )%>
+        <img class="card-img-top" src=<%= listing.image_proxies.first.image_url%> alt="">
       <% else %>
         <div>
           <img class="card-img-top" src="https://images.vexels.com/media/users/3/130201/isolated/preview/18f6be93175fe25d1d5faf56fcb1a652-european-house-silhouette-1-by-vexels.png">

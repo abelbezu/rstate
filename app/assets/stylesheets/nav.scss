@@ -2,19 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sch-navbar-bg {
-  background-color: #232329;
-
-  .nav-link {
-    color: #cdcfd3;
-    font-size: 14px;
-    font-family: "Helvetica Neue",Helvetica,arial,sans-serif;
-    font-weight: 300;
-    &:active {
-      color: #cdcfd3;
-    }
-  }
+.add-a-listing {
+  border-radius: 3px;
+  color: white !important;
+  margin-right: 20px;
+  background: linear-gradient(to right, #03A9F4 , #517476);
 }
+
+.admin-link {
+    border-radius: 3px;
+    color: white !important;
+    margin-right: 20px;
+    background: red;
+  }
+
 
 .rs-navbar-brand {
     color: #ffffff;

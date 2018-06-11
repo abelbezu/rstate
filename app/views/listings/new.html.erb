@@ -82,8 +82,8 @@
           </div>
         <% end %>
 
-        <div class="links mt-2"> 
-          <%= link_to_add_association("Add Image", form, :images, partial: "images/image_fields",  class: "btn btn-outline-primary") %>
+        <div id="container" class="links mt-2"> 
+          <%= link_to_add_association("Add Image", form, :image_proxies, partial: "images/image_fields",  class: "btn btn-outline-primary") %>
         </div>
         <%= form.fields_for(:price) do |price_form|%>
           <div class="form-row">
@@ -126,5 +126,18 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+      $(document).on('cocoon:after-insert', function(e, insertedItem) {
+        insertImage(insertedItem, "<%= form_authenticity_token %>");
+
+      });
+
+      $(document).on('cocoon:before-remove', function(e, removedItem) {
+        removeImage(removedItem);
+      });
+  });
+</script>
 
 <%= render(partial: "partials/footer") %>

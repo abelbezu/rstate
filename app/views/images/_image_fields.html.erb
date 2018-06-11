@@ -1,7 +1,20 @@
-<div class="nested-fields">
+<div class="imageWidget nested-fields">
     <div class="field mt-2">
-      <%= f.file_field :image, class: "col-md-6" %>
+      <%= f.hidden_field(:image_id, class: "imageId") %>
+      <%= f.hidden_field(:image_url, class: "imageUrl") %>
+      <div class="row">
+      <div class="image-preview-container col-md-6">
+        <% if cocoonable %>
+        <div class="remove-image-link" >
+          <%= link_to_remove_association "Remove Image", f, class: "removeImageBtn hidden btn btn-default" %>
+          <div class="loading-image-overlay hidden"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i><br>Uploading...</div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+      <input type="file" id="fileupload" class= "imageUploadField col-md-6" />
     </div>
     <br>
-    <%= link_to_remove_association "remove image", f %>
+    <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
+    <div id="demo"></div>
 </div>

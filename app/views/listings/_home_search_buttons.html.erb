@@ -1,43 +1,68 @@
-
-
-    <div class="row btn-group" role="group" aria-label="Basic example">
-      <div class="col-md-4">
-        <div class="rs-overlay-option">
-          Property Type :
-          <select class="rs-overlay-select custom-select">
-            <option> A House</option>
-            <option> An Appartment</option>
-          </select>     
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="rs-overlay-option">
-          City : 
-          <select class="rs-overlay-select custom-select">
-            <option> Addis Ababa</option>
-            <option> Adama </option>
-            <option> Bahirdar</option>
-            <option> Dire Dawa</option>
-            <option> Mekele</option>
-            <option> Gonder</option>
-            <option> Hawassa</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="rs-overlay-option">
-          Area : 
-          <select class="rs-overlay-select custom-select">
-            <option> Bole </option>
-            <option> Adama </option>
-            <option> Bahirdar</option>
-            <option> Dire Dawa</option>
-            <option> Mekele</option>
-            <option> Gonder</option>
-            <option> Hawassa</option>
-          </select>  
-        </div>    
-      </div>  
+  <form action="/search">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rs-overlay-option"> Looking To : </div>
     </div>
+    <div class="col-md-12">
+      <div class="rs-overlay-option">
+        <select name="listing_for" class="rs-overlay-select custom-select">
+          <option> Purchase</option>
+          <option> Rent</option>
+        </select> 
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <div class="row btn-group" role="group" aria-label="Basic example">
+    <div class="col-md-4">
+      <div class="rs-overlay-option">
+        Property Type :
+        <select name="property_type" class="rs-overlay-select custom-select">
+          <option> A House</option>
+          <option> An Appartment</option>
+          <option> Guest House</option>
+        </select>     
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="rs-overlay-option">
+        City : 
+        <select name="city" class="rs-overlay-select custom-select">
+          <option selected> Any </option>
+         <!--  <option> Adama </option>
+          <option> Bahirdar</option>
+          <option> Dire Dawa</option>
+          <option> Mekele</option>
+          <option> Gonder</option>
+          <option> Hawassa</option> -->
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="rs-overlay-option">
+        Area : 
+        <select name="neighborhood" class="rs-overlay-select custom-select">
+          <option selected> Any</option>
+          <!-- <option> Bole </option>
+          <option> Adama </option>
+          <option> Bahirdar</option>
+          <option> Dire Dawa</option>
+          <option> Mekele</option>
+          <option> Gonder</option>
+          <option> Hawassa</option> -->
+        </select>  
+      </div>    
+    </div>  
+  </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <button class="btn rs-btn-default">Search</button>     
+    </div>
+  </div>
+
+</form>
+
 

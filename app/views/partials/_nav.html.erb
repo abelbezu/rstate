@@ -4,29 +4,44 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <%= render(partial: "partials/brand_logo")%>
+      <%= render(partial: "partials/brand_logo") %>
       <ul class="navbar-nav ml-auto mt-2  my-2 my-lg-0">
         <% if user_signed_in? %>
+          <% if (current_user.role == "admin" || current_user.role == "agent") %>
+            <li class="nav-item">
+              <a class="nav-link add-a-listing" href="/listings/new">Add A listing</a>
+            </li>
+          <% end %>
+          <% if (current_user.role == "admin") %>
+            <li class="nav-item">
+              <a class="nav-link admin-link" href="/admin"><sapn><i class="fas fa-lock"> </i> admin</span></a>
+            </li>
+          <% end %>
         <li class="nav-item">
-          <a class="nav-link" href="/listings/new">Add A listing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= current_user.email %></a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-circle"></i> <%= current_user.email.split("@")[0] %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to("My Account", user_path(current_user), class: "dropdown-item") %>
+              <div class="dropdown-divider"></div>
+              <%= link_to("Log Out", destroy_user_session_path, class: "dropdown-item") %>
+            </div>
+          </li>
+          
         </li>
         <% else %>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sign Up</a>
-        </li>
+          <li class="nav-item">
+            <%= link_to("Log In", new_user_session_path, class: "nav-link") %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("Sign Up", new_user_registration_path, class: "nav-link") %>
+          </li>
 
         <% end %>
 
       </ul>
     </div>
-
-
   </div>
 </nav>

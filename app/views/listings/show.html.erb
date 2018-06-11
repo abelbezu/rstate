@@ -2,8 +2,8 @@
   <% if @listing %> 
     <div class="row">
       <div class="col-md-8 rs-listing-container-main mb-3">
-        <% if @listing.images %>
-          <%= render(partial: "house_picture_carousel", locals: {images: @listing.images})%>
+        <% if @listing.image_proxies %>
+          <%= render(partial: "house_picture_carousel", locals: {images: @listing.image_proxies})%>
         <% end %>
         <!-- Title and underline. -->
         <div class="row mt-3">

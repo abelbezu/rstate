@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 7afba9bb6a0faccd0167207494ddc5e10b912413
+  branch: master
+  specs:
+    faker (1.8.7)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -97,6 +105,11 @@ GEM
       warden (~> 1.2.3)
     erubi (1.7.1)
     execjs (2.7.0)
+    factory_bot (4.10.0)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.10.0)
+      factory_bot (~> 4.10.0)
+      railties (>= 3.0.0)
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -238,6 +251,8 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
+  factory_bot_rails (~> 4.0)
+  faker!
   figaro
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)

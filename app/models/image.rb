@@ -1,9 +1,6 @@
 class Image < ApplicationRecord
-  belongs_to :image_owner, polymorphic: true
-
   # Mount Carrier Wave image uploader
   mount_uploader :image, ImageUploader
-
 
   # This is a hack. Please come up with a more standard way if possible.
   def self.store(image_owner, images_attributes)

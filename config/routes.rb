@@ -4,14 +4,22 @@ Rails.application.routes.draw do
   root :to => 'listings#index'
 
 
-  get '/statics/ie', to: 'statics#ie'
   get '/admin/users', to: 'admin#users'
   get '/admin/listings', to: 'admin#listings'
   get '/admin/agents', to: 'admin#agents'
   get '/admin/analytics', to: 'admin#analytics'
+  get '/agentregistration', to: 'agents#new'
+  get 'search', to: 'listings#search_results'
+
+  post '/images/upload', to: 'images#upload'
+  patch '/images/upload', to: 'images#upload'
+  post '/images/remove_image', to: 'images#remove_image'
+  patch '/images/remove_image', to: 'images#remove_image'
 
   resources :listings
   resources :statics
   resources :admin
+  resources :agents
+  resources :users
 
 end

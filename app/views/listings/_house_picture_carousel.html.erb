@@ -4,17 +4,17 @@
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
         <% (images.count - 1).times do |i| %>          
-            <li data-target="#carouselExampleIndicators" data-slide-to=<%=i %>></li>         
+            <li data-target="#carouselExampleIndicators" data-slide-to=<%= i %>></li>         
         <% end %>
     </ol>
   <% end %>
   <div class="carousel-inner">
     <% if images.first %>
-          <div class="rs-carousel-item carousel-item active" style="background: url(<%= images.first.image.url %>)"></div>   
+          <div class="rs-carousel-item carousel-item active" style="background: url(<%= images.first.image_url %>)"></div>   
     <% end %>
-    <% images[1..-1].each do |current_image| %> 
-      <% if current_image.image && current_image.image.url %>
-          <div class="rs-carousel-item carousel-item" style="background: url(<%= current_image.image.url %>)">  
+    <% images.each do |current_image| %> 
+      <% if current_image != images.first && current_image.image_url %>
+          <div class="rs-carousel-item carousel-item" style="background: url(<%= current_image.image_url %>)">  
           </div>  
       <% end %>
     <% end %>

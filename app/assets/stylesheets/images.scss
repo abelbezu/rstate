@@ -1,3 +1,44 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.image-preview {
+  width: 100%;
+  height: auto;
+}
+
+.image-opacity {
+  filter: opacity(50%);
+}
+
+.image-preview-container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.loading-image-overlay {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
+
+.uploading-text {
+
+}
+
+.remove_fields {
+  margin-bottom: -50px;
+  position: relative;
+  background: #2c3e50;
+  color: white;
+  float: right;
+  border-radius: 0px;  
+}
+
+
