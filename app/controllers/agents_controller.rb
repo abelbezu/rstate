@@ -1,13 +1,15 @@
 class AgentsController < ApplicationController
-
+  before_action :user_signed_in
   def new 
     @agent = Agent.new
+    @agent.build_image_proxy
   end
   def create
     new_agent = Agent.new(agent_params)
-    new_agent.user = User.find(1)
+    new_agent.user = current_user
     if new_agent.save 
-      redirect_to user_path(User.find(1))
+      current_user.promote_to_agent
+      redirect_to user_path(new_agent)
     else
       new_agent.print_errors
       redirect_to root_url
@@ -25,6 +27,7 @@ class AgentsController < ApplicationController
       params.require(:agent).permit(
         :first_name, 
         :last_name, 
+        :phone_number,
         image_proxy_attributes: [:id, :image_id, :image_url, :_destroy])
     end
 end

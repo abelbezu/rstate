@@ -2,31 +2,65 @@
   <div class="row">
   <div class="col-md-3">
     <div class="rs-profile-card-container">
-      <div class="rs-profile-pic-container">
-        <img class="rs-profile-pic" src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
-      </div>
-      <div class="rs-profile-info">
-        <div class="rs-profile-name"> <b>Kidus Yohannes</b> </div>
-        <div class="rs-profile-role"> Agent </div>
-        <div class="rs-profile-details"> 
-          <span class="phone">+251 912 79 89 54</span>
-          <br>
-          <span class="email">kidusyohannes@gmail.com</span>
+      <% if current_user.is_agent %>
+        <div class="rs-profile-pic-container">
+          <% if current_user.agent.image_proxy  && current_user.agent.image_proxy.image_url%>
+          <img class="rs-profile-pic" src="<%= current_user.agent.image_proxy.image_url %>">
+          <% end %>
         </div>
+        <div class="rs-profile-info">
+
+          <div class="rs-profile-name"> <b><%= current_user.agent.first_name + " " + current_user.agent.last_name %></b> </div>
+          <div class="rs-profile-role"> Agent </div>
+          
+          <div class="rs-profile-details"> 
+            <span class="phone"><%= current_user.agent.phone_number%></span>
+            <br>
+            <span class="email"><%= current_user.email%></span>
+          </div>
+        </div> 
+      
+      <% else %>
+
+          <div class="rs-profile-pic-container">
+            <img class="rs-profile-pic" src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
+          </div>
+          <div class="rs-profile-info">  
+            <div class="rs-profile-details"> 
+              
+              <br>
+              <span class="email">kidusyohannes@gmail.com</span>
+            </div>
+          </div>
+      <% end %>
+
 
         <div class="rs-action-btns mt-2">
-          <button class="btn btn-secondary rs-action-btn">Register as an Agent</button>
-          <a href="/listings/new" class="btn btn-secondary rs-action-btn">Add a Listing</a>
+          <% if !current_user.is_agent %>
+            <a href="/agentregistration" class="btn btn-secondary rs-action-btn">Become an Agent</a>
+          <% else %>
+            <a href="/listings/new" class="btn btn-secondary rs-action-btn">Add a Listing</a>
+          <% end %>
         </div>
-      </div>
-      
     </div>
+      
   </div>
+
   <div class="col-md-9">
+    <% if current_user.is_agent %>
+      <h5> Listings </h5>
 
-    <h5> Listings </h5>
-    <hr>
-
+      <hr>
+      <div class="row">
+          <% current_user.agent.listings.each do |listing| %>
+            <div class="col-md-3 col-sm-12 mt-3">
+              <%= render(partial: "listings/listing_card", locals: {listing: listing}) %>
+            </div>
+          <% end %>   
+      </div>
+      <br>
+      <br>
+    <% end %>
     <h5> Interested In </h5>
     <hr>
   </div>

@@ -4,7 +4,7 @@
       <%= f.hidden_field(:image_url, class: "imageUrl") %>
       <div class="row">
       <div class="image-preview-container col-md-6">
-        <% if cocoonable %>
+        <% if @cocoonable %>
         <div class="remove-image-link" >
           <%= link_to_remove_association "Remove Image", f, class: "removeImageBtn hidden btn btn-default" %>
           <div class="loading-image-overlay hidden"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i><br>Uploading...</div>

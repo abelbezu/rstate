@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/admin/analytics', to: 'admin#analytics'
   get '/agentregistration', to: 'agents#new'
   get 'search', to: 'listings#search_results'
+  get 'account', to: 'users#show'
 
   post '/images/upload', to: 'images#upload'
   patch '/images/upload', to: 'images#upload'

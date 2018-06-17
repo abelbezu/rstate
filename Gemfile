@@ -5,8 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use s3 for storage.
+gem 'aws-sdk-s3'
 # Use devise as for authentication.
 gem 'devise'
+# Use query and jquery ujs
+gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
@@ -15,6 +19,7 @@ gem 'pg'
 # Use CarrierWave and MiniMagic for image upload.
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+gem 'fog'
 # Use cocoon for nested form fields
 gem 'cocoon'
 # Use Puma as the app server

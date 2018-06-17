@@ -5,4 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :agent
+
+
+  def promote_to_agent
+    self.update!({role: "agent"})
+  end
+
+
+  def is_agent
+    return self.role == "agent" || self.role == "admin"
+  end
+
 end

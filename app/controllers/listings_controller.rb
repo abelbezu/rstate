@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :user_is_agent, only: [:create, :new, :edit, :update]
   def index
     @listings = Listing.all
   end
@@ -13,6 +14,7 @@ class ListingsController < ApplicationController
     @listing.build_location
     @listing.build_price
     @listing.build_house_detail
+    @cocoonable = true
   end
 
 
@@ -33,7 +35,12 @@ class ListingsController < ApplicationController
   def create
     # The following is a bit hacky. Come up with a better way to do this.
     @new_listing = Listing.new(listing_params.except(:images_attributes))
+    @new_listing.agent = current_user.agent
     if @new_listing.save
+      # DANGER!!! This shouldn't take place in this thread.
+      if in_prod
+        copy_and_clean_images @new_listing.image_proxies
+      end
       redirect_to @new_listing
     else
       @new_listing.print_errors

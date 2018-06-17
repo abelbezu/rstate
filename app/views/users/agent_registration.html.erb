@@ -2,20 +2,45 @@
   <div class="row">
     <div class="col-md-3 mt-3">
       <div class="rs-profile-card-container">
-        <div class="rs-profile-pic-container">
-          <img class="rs-profile-pic" src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
-        </div>
-        <div class="rs-profile-info">
-          <div class="rs-profile-name"> <b>Kidus Yohannes</b> </div>
-          <div class="rs-profile-role"> Agent </div>
-          <div class="rs-profile-details"> 
-            <span class="phone">+251 912 79 89 54</span>
-            <br>
-            <span class="email">kidusyohannes@gmail.com</span>
+        <% if current_user.is_agent %>
+          <div class="rs-profile-pic-container">
+            <img class="rs-profile-pic" src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
           </div>
+          <div class="rs-profile-info">
 
+            <div class="rs-profile-name"> <b><%= current_user.first_name + " " + current_user.last_name %></b> </div>
+            <div class="rs-profile-role"> Agent </div>
+            
+            <div class="rs-profile-details"> 
+              <span class="phone">+251 912 79 89 54</span>
+              <br>
+              <span class="email">kidusyohannes@gmail.com</span>
+            </div>
+          </div> 
+        
+        <% else %>
+
+            <div class="rs-profile-pic-container">
+              <img class="rs-profile-pic" src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
+            </div>
+            <div class="rs-profile-info">  
+              <div class="rs-profile-details"> 
+                <span class="phone">+251 912 79 89 54</span>
+                <br>
+                <span class="email">kidusyohannes@gmail.com</span>
+              </div>
+            </div>
+        <% end %>
+
+
+        <div class="rs-action-btns mt-2">
+          <% if !current_user.is_agent %>
+            <a href="/agentregistration" class="btn btn-secondary rs-action-btn">Become an Agent</a>
+          <% else %>
+            <a href="/listings/new" class="btn btn-secondary rs-action-btn">Add a Listing</a>
+          <% end %>
         </div>
-      </div>
+    </div>
     </div>
 
     <div class="col-md-9 mt-3">

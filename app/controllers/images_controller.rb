@@ -11,7 +11,6 @@ class ImagesController < ApplicationController
   end
 
   def remove_image
-    puts "============================"
     id = params[:id]
     image_to_remove = Image.find(id)
     image_to_remove.remove_image!

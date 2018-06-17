@@ -20,7 +20,7 @@
       </div>
     </div>
     
-    <%= form.fields_for :image_proxies do |image_proxy_form| %>
+    <%= form.fields_for :image_proxy do |image_proxy_form| %>
       <%= render("images/image_fields", f: image_proxy_form, cocoonable: false) %>
     <% end %>
 

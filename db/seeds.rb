@@ -16,10 +16,11 @@ currencies = ["USD", "ETB"]
 base_amount = 20000000
 
 10.times do |n|
-  user = User.create({
-    email: "user_#{n}@rstate.com", 
-    encrypted_password: "123456789", 
-    sign_in_count: 0})
+  user = User.new  
+  user.email = "user_#{n}@rstate.com"
+  user.password = '123456789'
+  user.sign_in_count = 0
+  user.save!
 
   agent = Agent.create({
     first_name: "Agent_#{n}",
