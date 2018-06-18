@@ -26,4 +26,7 @@
 /config/application.yml
 
 /public/uploads
+/tmp/uploads
+
+/config/deploy/*
 
