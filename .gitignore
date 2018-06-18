@@ -28,5 +28,6 @@
 /public/uploads
 /tmp/uploads
 
-/config/deploy/*
+/config/deploy/production.rb
 
+lib/capistrano/tasks/env.rake
