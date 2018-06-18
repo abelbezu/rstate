@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
     @new_image = Image.new
     @new_image.image = image_params[0]
     if @new_image.save 
-      @uploaded_file = { id: @new_image.id, url: root_url + @new_image.image.url }
+      @uploaded_file = { id: @new_image.id, url: @new_image.image.url }
       render json: @uploaded_file
     else
       @new_image.print_errors  
