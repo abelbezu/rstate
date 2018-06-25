@@ -37,13 +37,39 @@ class ListingsController < ApplicationController
     @new_listing = Listing.new(listing_params.except(:images_attributes))
     @new_listing.agent = current_user.agent
     if @new_listing.save
-      # DANGER!!! This shouldn't take place in this thread.
-      if in_prod
-        copy_and_clean_images @new_listing.image_proxies
-      end
       redirect_to @new_listing
     else
       @new_listing.print_errors
+      redirect_to action: :new
+    end
+  end
+
+  def interest_indication_form
+    @listing = Listing.find(params[:id])
+    @interest = @listing.interest_indications.build
+  end
+
+  def create_interest_indications
+    @listing = Listing.find(interest_indication_params[:listing_id])
+    @guest = Guest.new({
+      name: interest_indication_params[:guest_name],
+      email: interest_indication_params[:guest_email],
+      phone_number: interest_indication_params[:guest_phone_number]
+    })
+    @interest_indication = InterestIndication.new
+    if @guest.save
+      @interest_indication.listing = @listing 
+      @interest_indication.guest = @guest
+      @interest_indication.body = interest_indication_params[:message]  
+
+      if @interest_indication.save
+        redirect_to @listing
+      else
+        @interest_indication.print_errors
+        redirect_to action: :new
+      end
+    else
+      @guest.print_errors
       redirect_to action: :new
     end
   end
@@ -84,5 +110,9 @@ class ListingsController < ApplicationController
 
     def search_params
       params.permit(:listing_for, :property_type, :city, :neighborhood)
+    end
+
+    def interest_indication_params
+      params.permit(:listing_id, :guest_name, :guest_phone_number, :guest_email, :message)
     end
 end

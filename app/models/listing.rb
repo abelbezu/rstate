@@ -3,7 +3,9 @@ class Listing < ApplicationRecord
   has_one :price
   has_one :location
 
+
   has_many :image_proxies, as: :proxy_owner, dependent: :destroy
+  has_many :interest_indications
 
   belongs_to :agent
   
@@ -33,6 +35,10 @@ class Listing < ApplicationRecord
       return Listing.joins(:location, :house_detail).where(search_query)
 
 
+  end
+
+  def is_owned_by_user(user)
+    return user.agent && agent == user.agent
   end
 
 end

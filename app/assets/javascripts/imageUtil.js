@@ -29,9 +29,8 @@ function insertImage(insertedItem, authenticityToken) {
             maxWidth: 600,
             imageMaxHeight: 600
           } 
-          );
+      );
     },
-
 
     done: function (e, data) {
       $removeImageBtn.removeClass("hidden");
@@ -42,7 +41,7 @@ function insertImage(insertedItem, authenticityToken) {
       // Handle errors correctly
       $imageIdField.val(data.result.id);
       $imageUrlField.val(data.result.url)
-      console.log(data.result.id)
+      
     }
   });
 }

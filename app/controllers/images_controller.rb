@@ -15,7 +15,9 @@ class ImagesController < ApplicationController
     image_to_remove = Image.find(id)
     image_to_remove.remove_image!
     if image_to_remove.destroy
-      puts "destroyed "
+      render json: {removed: true}
+    else
+      render json: {removed: false}
     end
 
   end

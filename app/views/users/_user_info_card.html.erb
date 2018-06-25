@@ -1,0 +1,42 @@
+<div class="rs-profile-card-container">
+      <% if current_user.is_agent %>
+        <div class="rs-profile-pic-container">
+          <% if current_user.agent.image_proxy  && current_user.agent.image_proxy.image_url%>
+          <img class="rs-profile-pic" src="<%= current_user.agent.image_proxy.image_url %>">
+          <% end %>
+        </div>
+        <div class="rs-profile-info">
+
+          <div class="rs-profile-name"> <b><%= current_user.agent.first_name + " " + current_user.agent.last_name %></b> </div>
+          <div class="rs-profile-role"> Agent </div>
+          
+          <div class="rs-profile-details"> 
+            <span class="phone"><%= current_user.agent.phone_number%></span>
+            <br>
+            <span class="email"><%= current_user.email%></span>
+          </div>
+        </div> 
+      
+      <% else %>
+
+          <div class="rs-profile-pic-container">
+            <img class="rs-profile-pic" src="https://www.drupal.org/files/user-pictures/picture-2204516-1469808304.png">
+          </div>
+          <div class="rs-profile-info">  
+            <div class="rs-profile-details"> 
+              
+              <br>
+              <span class="email">kidusyohannes@gmail.com</span>
+            </div>
+          </div>
+      <% end %>
+
+
+        <div class="rs-action-btns mt-2">
+          <% if !current_user.is_agent %>
+            <a href="/agentregistration" class="btn btn-secondary rs-action-btn">Become an Agent</a>
+          <% else %>
+            <a href="/listings/new" class="btn btn-secondary rs-action-btn">Add a Listing</a>
+          <% end %>
+        </div>
+    </div>

@@ -1,0 +1,11 @@
+<% if interest_indication %>
+<div class="card mt-4">
+  <div class="card-body rs-agent-message">
+    <h5 class="card-title"><%= interest_indication.guest.name %></h5>
+    <strong> email </strong> <%= interest_indication.guest.email %>, <strong> phone number </strong>  <%= interest_indication.guest.phone_number %>
+    <hr>
+    
+    <p class="card-text"><%= interest_indication.body %></p>
+  </div>
+</div>
+<% end %>

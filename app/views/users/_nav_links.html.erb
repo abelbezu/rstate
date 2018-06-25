@@ -1,0 +1,9 @@
+<nav class="nav">
+  <% if current_user.is_agent %>
+    <a class="nav-link <%= 'active' if active == "listings" %>" href="/userlistings">Listings</a>
+  <% end %>
+  <a class="nav-link <%= 'active' if active == "interests" %>" href="/account">Interested In</a>
+  <% if current_user.is_agent %>
+  <a class="nav-link <%= 'active' if active == "messages" %>" href="/messages">Messages</a>
+  <% end %>
+</nav>

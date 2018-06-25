@@ -21,6 +21,11 @@
         <br>
 
         <%= listing.agent.phone_number%>
+        <br>
+        <br>        
+        <% if (!user_signed_in? || (listing && !listing.is_owned_by_user(current_user))) %>
+          <a style="color: white;" class="btn btn-secondary" href="/interested/<%= listing.id%>"> Contact Agent</a>
+        <% end %>
       </div>
     <% end %>
   </div>

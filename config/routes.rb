@@ -11,11 +11,16 @@ Rails.application.routes.draw do
   get '/agentregistration', to: 'agents#new'
   get 'search', to: 'listings#search_results'
   get 'account', to: 'users#show'
+  get 'userlistings', to: "users#user_listings"
+  get 'messages', to: "users#user_messages"
+  get 'interested/:id', to:"listings#interest_indication_form"
 
   post '/images/upload', to: 'images#upload'
-  patch '/images/upload', to: 'images#upload'
+  post "/interest_indications", to: "listings#create_interest_indications"
   post '/images/remove_image', to: 'images#remove_image'
+
   patch '/images/remove_image', to: 'images#remove_image'
+  patch '/images/upload', to: 'images#upload'
 
   resources :listings
   resources :statics
