@@ -9,7 +9,7 @@ set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 2
 set :rvm_type, :user
-set :rvm_ruby_version, '2.4.1' 
+set :rvm_ruby_version, '2.5.1' 
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
@@ -26,4 +26,4 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
 
-server '54.215.249.165', user: 'deploy', roles: %w{web app db}
+server '13.57.244.24', user: 'deploy', roles: %w{web app db}

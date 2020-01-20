@@ -13,9 +13,4 @@ class Image < ApplicationRecord
     obj = s3.bucket(bucket).object(name)
     obj.upload_file(file)
   end
-
-  def upload_and_clean
-    puts self.image.url
-
-  end
 end

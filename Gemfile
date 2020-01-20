@@ -8,7 +8,7 @@ end
 # Use s3 for storage.
 gem 'aws-sdk-s3'
 # Use devise as for authentication.
-gem 'devise'
+gem 'devise', '>= 4.7.1' 
 # Use query and jquery ujs
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -18,12 +18,12 @@ gem 'rails', '~> 5.1.6'
 gem 'pg'
 # Use CarrierWave and MiniMagic for image upload.
 gem 'carrierwave', '~> 0.10.0'
-gem 'mini_magick', '~> 4.3'
+gem 'mini_magick', '>= 4.9.4'
 gem 'fog'
 # Use cocoon for nested form fields
 gem 'cocoon'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '>= 3.12.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
