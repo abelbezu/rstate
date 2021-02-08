@@ -17,7 +17,7 @@ gem 'rails', '~> 5.1.6'
 # gem 'mysql2'
 gem 'pg'
 # Use CarrierWave and MiniMagic for image upload.
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave', '~> 1.3.2'
 gem 'mini_magick', '>= 4.9.4'
 gem 'fog'
 # Use cocoon for nested form fields
